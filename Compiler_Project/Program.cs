@@ -27,10 +27,26 @@ public class Token
     }
 }
 
+
 public class Program
 {
     public static void Main()
     {
+        //while (true)
+        //{
+        //    Console.Write("Enter an arithmetic expression: ");
+        //    var input = Console.ReadLine();
+        //    var lexer = new Lexer(input);
+
+        //    Token token;
+        //    do
+        //    {
+        //        token = lexer.GetNextToken();
+        //        Console.WriteLine($"Token: Type={token.Type}, Value='{token.Value}'");
+        //    } while (token.Type != TokenType.EndOfInput);
+        //}
+
+        #region
         while (true)
         {
             Console.Write("Enter an arithmetic expression: ");
@@ -45,9 +61,6 @@ public class Program
                 tokens.Add(token);
             } while (token.Type != TokenType.EndOfInput);
 
-
-
-
             var parser = new Parser(tokens.ToArray());
             try
             {
@@ -59,6 +72,7 @@ public class Program
                 Console.WriteLine($"Error: {ex.Message}");
             }
         }
+        #endregion
     }
 }
 
